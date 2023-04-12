@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container" class="center">
+      <h1>Bored?</h1>
+      <h2>Tap banish boredom</h2>
+
+      <button id="bored-button">BORED</button>
+
+      <div class="card" id="primary-card">
+        <h2 id="activity">Play basketball with a group of friends</h3>
+        <div class="flex-row">
+          <div class="item">Type: <span id="type">Social</span></div>
+          <div class="item">People: <span id="participants">5</span></div>
+          <div class="item">Price: <span id="price">0</span></div>
+          <div class="item" id="link-container"><a id="link" href="">Link</a></div>
+        </div>
+        <div class="flex-buttons">
+          <button id="like-button">Love it</button>
+          <button id="nope-button">Nope</button>
+        </div>
+      </div>
+
+      <div id="list">
+        <h2>Saved Activities</h2>
+        <div class="card">
+          <h2 id="activity">Meditate for five minutes</h3>
+          <div class="flex-row">
+            <div class="item">Type: Relaxation</div>
+            <div class="item">People: 1</div>
+            <div class="item">Price: 0</div>
+            <div class="link">Link: Link</div>
+          </div>
+          <button class="delete-button">Delete</button>
+        </div>
+      </div>
+        <div class="card">
+          <h2 id="activity">Learn calligraphy</h3>
+          <div class="flex-row">
+            <div class="item">Type: Education</div>
+            <div class="item">People: 1</div>
+            <div class="item">Price: 0.1</div>
+            <div class="link">Link: Link</div>
+          </div>
+          <button class="delete-button">Delete</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="main.js"></script>
+</html>
