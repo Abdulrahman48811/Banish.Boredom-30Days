@@ -1,3 +1,5 @@
+const list = document.getElementById("list");
+const placeholderCard = document.getElementById("primary-card");
 const linkContainer = document.getElementById("link-container");
 const activity = document.getElementById("activity");
 const type = document.getElementById("type");
@@ -52,4 +54,44 @@ const onBoredClicked = () => {
   const likeButton = document.getElementById("like-button");
   likeButton.onclick = onLikeClicked;
 
-window.onload = onBoredClicked;
+  window.onload = () => {
+    const savedActivitiesString = localStorage.getItem("activities");
+  
+    const savedActivities = JSON.parse(savedActivitiesString) ?? [];
+  
+    savedActivities.forEach((savedActivity) => {
+      const newCard = placeholderCard.cloneNode(true);
+      console.log(newCard);
+      newCard.id = savedActivity.key;
+  
+      const newCardActivity = newCard.querySelector(".activity");
+      newCardActivity.innerText = savedActivity.activity;
+  
+      const newCardType = newCard.querySelector(".type");
+      newCardType.innerText = savedActivity.type;
+  
+      const newCardParticipants = newCard.querySelector(".participants");
+      newCardParticipants.innerText = savedActivity.participants;
+  
+      const newCardPrice = newCard.querySelector(".price");
+      newCardPrice.innerText = savedActivity.price;
+  
+      if (savedActivity.link) {
+        const newCardLink = newCard.querySelector(".link");
+        const newCardLinkContainer = newCard.querySelector(".link-container");
+        console.log(newCardLinkContainer);
+        newCardLink.href = savedActivity.link;
+        newCardLinkContainer.hidden = false;
+      }
+  
+      const newCardDeleteButton = newCard.querySelector(".delete-button");
+      newCardDeleteButton.onclick = () => {
+        console.log("delete: ", savedActivity.key);
+      };
+  
+      list.appendChild(newCard);
+    });
+  
+    onBoredClicked();
+  };
+  
