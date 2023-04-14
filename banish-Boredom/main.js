@@ -95,3 +95,17 @@ const onBoredClicked = () => {
     onBoredClicked();
   };
   
+  const deleteActivity = (key) => {
+    const savedActivitiesString = localStorage.getItem("activities");
+  
+    const savedActivities = JSON.parse(savedActivitiesString) ?? [];
+  
+    const updatedActivities = savedActivities.filter(
+      (activity) => activity.key !== key
+    );
+  
+    localStorage.setItem("activities", JSON.stringify(updatedActivities));
+  };
+  newCardDeleteButton.onclick = () => {
+    deleteActivity(savedActivity.key);
+  };
